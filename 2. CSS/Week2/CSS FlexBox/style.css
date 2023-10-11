@@ -1,0 +1,27 @@
+html {
+  box-sizing: border-box;
+  background-color: aqua;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+#parent {
+    /* this is flex-container - {contains all the flex items} */
+  border: solid red 6px;
+  display: flex ;
+  /* flex-direction: column; */
+  /* flex-wrap: nowrap; */
+  flex-flow: row-reverse wrap; /* combination of flex direction and flex wrap*/
+}
+
+#parent div {
+    /*flex items */
+    border: solid blue 4px;
+    padding: 20px;
+    background-color: bisque;
+    width: 450px;
+    text-align: center;
+}

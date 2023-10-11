@@ -1,0 +1,30 @@
+html{
+    background-color: azure;
+    box-sizing: border-box;
+}
+
+* , *:before , *:after {
+    box-sizing: inherit;
+}
+
+.demo1 {
+    width: 60%;
+    font-size: 20px;
+    border: 2px solid blue;
+    margin-bottom: 20px;
+}
+
+.demo2 {
+    width: 200px;
+    font-size: 20px;
+    border: 2px solid green;
+    padding: 10px;
+}
+
+.demo3 {
+    width: 100px;
+    font-size: 20px;
+    border: 2px solid green;
+    padding: 10px;
+    text-align: center;
+}
