@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registration Form</title>
+  </head>
+  <body>
+    <h1>Student Registation Form</h1>
+    <form action="" method="get">
+        <table align="center" cellpadding="10">
+          <tr>
+            <td>
+              <label for="firstname">First Name :</label>
+            </td>
+            <td>
+              <input
+                type="text"
+                name="firstname"
+                id="firstname"
+                placeholder="firstname"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="lastname">Last Name :</label>
+            </td>
+            <td>
+              <input
+                type="text"
+                name="lastname"
+                id="lastname"
+                placeholder="lastname"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="dob">Date of Birth</label>
+            </td>
+            <td>
+              <input type="date" name="dob" id="dob" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="emailid">Email Id:</label>
+            </td>
+            <td>
+              <input
+                type="email"
+                name="emailid"
+                id="emailid"
+                placeholder="xyz@kmail.com"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="mobileno">Mobile no. :</label>
+            </td>
+            <td>
+              <input type="number" name="mobileno" id="mobileno" maxlength="10" />
+            </td>
+          </tr>
+          <!-- radio buttons - let us select any one option based on name property -->
+          <tr>
+            <td>
+              <label for="gender">Gender:</label>
+            </td>
+            <td>
+              <label for="gender_male">Male:</label>
+              <input type="radio" name="gender" id="gender_male" />
+    
+              <label for="gender_female">Female:</label>
+              <input type="radio" name="gender" id="gender_female" />
+    
+              <label for="gender_trans">Transgender:</label>
+              <input type="radio" name="gender" id="gender_trans" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="country">Country:</label>
+            </td>
+            <td>
+              <input
+                type="text"
+                name="country"
+                id="country"
+                value="India"
+                placeholder="country"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="address">Address:</label>
+            </td>
+            <td>
+              <textarea
+                name="address"
+                id="address"
+                cols="30"
+                rows="10"
+                placeholder="Enter your address"
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="pincode">Pincode:</label>
+            </td>
+            <td>
+              <input type="number" name="pincode" id="pincode" max="999999" />
+            </td>
+            <td>
+              <p>(Max length = 6)</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="hobbies">Hobbies: </label>
+            </td>
+            <td>
+              <label for="dancing">Dancing:</label>
+              <input type="checkbox" name="hobbies" id="dancing" />
+    
+              <label for="singing">Singing:</label>
+              <input type="checkbox" name="hobbies" id="singing" />
+    
+              <label for="cooking">Cooking:</label>
+              <input type="checkbox" name="hobbies" id="cooking" />
+    
+              <label for="cycling">Cycling:</label>
+              <input type="checkbox" name="hobbies" id="cycling" />
+            </td>
+          </tr>
+    
+          <tr>
+            <td>Qualifications</td>
+            <td>
+                <table cellpadding="5">
+                    <thead>
+                        <tr>
+                            <th colspan="5">Enter your data</th>
+                        </tr>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Examination</th>
+                            <th>Board/University</th>
+                            <th>Percentage</th>
+                            <th>Year of Passing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="center">
+                                1.
+                            </td>
+                            <td>
+                                <input type="text" name="examination" id="examination" placeholder="">
+                            </td>
+                            <td>
+                                <input type="text" name="uni" id="uni" placeholder="">
+                            </td>
+                            <td>
+                                <input type="number" name="percentage" id="percentage" max="100" min="0" placeholder="">
+                            </td>
+                            <td>
+                                <input type="number" name="yop" id="yop" max="1900" min="2030" placeholder="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                2.
+                            </td>
+                            <td>
+                                <input type="text" name="examination" id="examination" placeholder="">
+                            </td>
+                            <td>
+                                <input type="text" name="uni" id="uni" placeholder="">
+                            </td>
+                            <td>
+                                <input type="number" name="percentage" id="percentage" max="100" min="0" placeholder="">
+                            </td>
+                            <td>
+                                <input type="number" name="yop" id="yop" max="1900" min="2030" placeholder="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                3.
+                            </td>
+                            <td>
+                                <input type="text" name="examination" id="examination" placeholder="">
+                            </td>
+                            <td>
+                                <input type="text" name="uni" id="uni" placeholder="">
+                            </td>
+                            <td>
+                                <input type="number" name="percentage" id="percentage" max="100" min="0" placeholder="">
+                            </td>
+                            <td>
+                                <input type="number" name="yop" id="yop" max="1900" min="2030" placeholder="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                4.
+                            </td>
+                            <td>
+                                <input type="text" name="examination" id="examination" placeholder="">
+                            </td>
+                            <td>
+                                <input type="text" name="uni" id="uni" placeholder="">
+                            </td>
+                            <td>
+                                <input type="number" name="percentage" id="percentage" max="100" min="0" placeholder="">
+                            </td>
+                            <td>
+                                <input type="number" name="yop" id="yop" max="1900" min="2030" placeholder="">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3" align="center">
+                <input type="submit" value="Submit">
+            </td>
+            <td>
+                <input type="reset" value="Reset Form">
+            </td>
+          </tr>
+        </table>
+    </form>
+  </body>
+</html>
