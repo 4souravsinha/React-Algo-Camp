@@ -1,0 +1,98 @@
+:root {
+  /* This color theme consists of Greedy Green, Mint Tonic, Melbourne Cup, Bondi and Midnight Dreams. It was created with custom harmony. */
+  --greedy_green: #dafdba;
+  --mint_tonic: #9aeba3;
+  --melbourne_cup: #45c4b0;
+  --bondi: #13678a;
+  --midnight_dreams: #012030;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--midnight_dreams);
+  background-color: var(--greedy_green);
+  line-height:1.5;
+  font-size: 2rem;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+  margin: 0;
+}
+
+#intro{
+  margin-bottom: 7rem;
+}
+
+#name{
+  display: block;
+  font-size: 5rem;
+  color: var(--melbourne_cup);
+}
+
+#intro h2{
+  font-size: 3.5rem;
+  font-weight: normal;
+}
+#intro h4{
+  font-weight: normal;
+}
+
+li {
+  list-style-type: none;
+  font-size: 2.5rem;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  color: var(--midnight_dreams);
+}
+
+#hire {
+  width: 500px;
+  text-align: center;
+  margin: 3rem auto; /* 0 is the top and bottom and auto is for left and right. auto makes the margin on left and right distributed equally*/
+  background-color: var(--mint_tonic);
+}
+
+#hire p:last-child{
+  margin-top: 3rem;
+}
+
+.section-mint-tonic{
+  background-color: var(--mint_tonic);
+}
+
+nav ul{
+  font-size: 80%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 2rem;
+}
+
+nav > ul :first-child{
+  flex-grow: 1;
+}
+
+
+
+
+
+
