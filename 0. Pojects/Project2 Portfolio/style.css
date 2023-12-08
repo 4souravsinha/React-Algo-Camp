@@ -31,8 +31,26 @@ h1,h2,h3,h4,h5,h6,p{
 }
 
 #intro{
-  margin-bottom: 7rem;
+  /* margin-bottom: 7rem; */
+  padding: 2rem 1rem 2rem 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
+
+
+#experience{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#experience img{
+  max-width: 500px;
+  max-height: 300px;
+  margin: 1rem 0;
+  border-radius: 2rem;
+}
+
 
 #name{
   display: block;
@@ -60,12 +78,16 @@ ul{
 
 a{
   color: var(--midnight_dreams);
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
 }
 
 #hire {
   width: 500px;
   text-align: center;
-  margin: 3rem auto; /* 0 is the top and bottom and auto is for left and right. auto makes the margin on left and right distributed equally*/
+  margin: 0rem auto; /* 0 is the top and bottom and auto is for left and right. auto makes the margin on left and right distributed equally*/
   background-color: var(--mint_tonic);
 }
 
@@ -77,6 +99,10 @@ a{
   background-color: var(--mint_tonic);
 }
 
+nav{
+  padding: 1rem;
+  background-color: var(--mint_tonic);
+}
 nav ul{
   font-size: 80%;
   padding: 0;
@@ -85,14 +111,54 @@ nav ul{
   justify-content: end;
   align-items: center;
   gap: 2rem;
+  margin-right: 2rem;
+  flex-flow: row wrap;;
 }
 
-nav > ul :first-child{
-  flex-grow: 1;
+nav li:first-child{
+  /* flex-grow: 1; */
+  flex-basis: 100%;
+  font-size: 4rem;
 }
 
+.button{
+  background-color: orangered;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
 
+.button:hover{
+  background-color: lightblue;
+}
 
+@media (min-width: 895px) {
+  nav li:first-child{
+    flex-grow: 1;
+    flex-basis: auto;
+  }
+}
 
+.gradient-section{
+  height: 3px;
+  background: rgb(197,241,158);
+background: linear-gradient(194deg, rgba(197,241,158,1) 7%, rgba(2,0,36,1) 22%, rgba(0,212,255,1) 47%);
+  margin: 0%;
+  padding:0%;
+}
 
+footer{
+  text-align: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
 
+/* #experience #experience-details{
+  max-width: 100%;
+} */
+
+#experience ul{
+  border: solid var(--bondi) 4px;
+  border-radius: 8px;
+  padding: 8px;
+  background-color: var(--melbourne_cup);
+}

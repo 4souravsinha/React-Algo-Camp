@@ -1,0 +1,80 @@
+/* html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+  }
+
+.percentage{
+    width: 400px;
+    border:2px solid black;
+  }
+
+#percent {
+    width: 50%;
+    height: 40px;
+    background-color: red;
+}
+
+span{
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.navbar {
+  /* background-color: #333; */
+  overflow: hidden;
+  display: flex;
+}
+
+.navbar-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+li{
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+a:hover{
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 20px;
+  background-color: #f1f1f1;
+  border: 1px solid black;
+}
+
+.current-progress{
+  width: 80%;
+  height: 100%;
+  background-color: lightgreen;
+  text-align: center;
+}
+
+
+
+
