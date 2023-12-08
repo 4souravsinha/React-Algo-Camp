@@ -4,14 +4,15 @@ const setNewTaskValue = (e) => {
     console.log(newTaskValue)
 }
 
-function enableAddTaskButton(){
+function toggleAddTaskButton(e){
     const addTaskButton = document.getElementById("add-task-btn")
-    if(newTaskValue){
+    if(e.target.value){
         addTaskButton.removeAttribute('disabled')
+        console.log("enabled")
     }else{
         addTaskButton.setAttribute('disabled' , true)
+        console.log('disabled')
     }
-    addTaskButton.setAttribute('disabled' , true)
 }
 
 const updateInputField = ()=>{
@@ -46,6 +47,7 @@ const addTasks = (e)=>{
     </div>`;
     newTaskValue=""
     updateInputField()
+    // toggleAddTaskButton()
     parentDiv.appendChild(newelement) 
     console.log("done")
 }
