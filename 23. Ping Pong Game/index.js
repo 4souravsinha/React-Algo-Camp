@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
         ballStyle.left = `${ballX}px`;
         ballStyle.top = `${ballY}px`;
 
+        if(ballX < paddle.offsetLeft + paddle.offsetWidth){
+            if(ballY > paddle.offsetTop && ballY + ball.offsetHeight < paddle.offsetTop + paddle.offsetHeight){
+                dx *= -1;
+            }
+        }
         if(ballX >= playground.offsetWidth - ball.offsetWidth|| ballX <= 0) dx *= -1;
         if(ballY >= playground.offsetHeight - ball.offsetHeight || ballY <= 0) dy *= -1;
     }, 1);
@@ -27,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let paddleY = 0;
     let pDy = 10;
     document.addEventListener("keydown", function(event) {
+        event.preventDefault();
         switch(event.key) {
             case 'ArrowDown':
                 if(paddleY < playground.offsetHeight - paddle.offsetHeight) {
