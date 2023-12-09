@@ -48,4 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
     })
+
+    document.addEventListener("mousemove", function(event) {
+        let mouseDistanceFromTop = event.clientY;
+        let distanceOfPlaygroundFromTop = playground.offsetTop;
+        let mousePointControlY = mouseDistanceFromTop - distanceOfPlaygroundFromTop - paddle.offsetHeight / 2;
+        let mousePointControlX = event.clientX - playground.offsetLeft - paddle.offsetWidth / 2;
+
+        if(mousePointControlY > 0 && mousePointControlY < playground.offsetHeight - paddle.offsetHeight && mousePointControlX > 0 && mousePointControlX < playground.offsetWidth) {
+            paddle.style.top = `${mousePointControlY}px`;
+        }
+
+    })
 });
