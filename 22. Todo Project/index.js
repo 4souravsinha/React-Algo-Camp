@@ -49,6 +49,14 @@ function finishHandle(e){
     renderTasks();
 }
 
+function editHandle(e){
+    alert("Feature coming soon...");
+}
+
+function handlePendingTasks(){
+    alert("Feature coming soon...");
+}
+
 const addTasks = (e) => {
   if (newTaskValue == "") return;
   tasks.push({
@@ -95,10 +103,13 @@ const renderTasks = () => {
         </div>
         <div class="basis-1/6 text-center text-xl todo-action">
             <button class="border-2 border-red-500 bg-red-500 text-white p-1 rounded-lg hover:bg-red-700" onclick="deleteHandle(event)">
-                ${"Delete"}
+                Delete
             </button>
-            <button class="border-2 border-green-500 bg-green-500 text-white p-1 rounded-lg hover:bg-green-700 ml-2 " onclick="finishHandle(event)">
+            <button class="border-2 border-green-500 bg-green-500 text-white p-1 rounded-lg hover:bg-green-700 ml-2" onclick="finishHandle(event)">
                 ${task.finishButton}
+            </button>
+            <button class="border-2 border-blue-500 bg-blue-500 text-white p-1 rounded-lg hover:bg-blue-700 ml-2" onclick="editHandle(event)">
+                Edit
             </button>
         </div>
         `;
