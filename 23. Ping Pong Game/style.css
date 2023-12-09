@@ -1,0 +1,40 @@
+/* FILEPATH: /Users/sourav/Documents/React_Algo_Camp/23. Ping Pong Game/style.css */
+
+/* Reset default styles */
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+/* Add your custom styles below */
+.playground{
+    width: 100vh;
+    height: 50vh;
+    border: 2px solid black;
+    position: relative;
+}
+.paddle{
+    width: 10px;
+    height: 100px;
+    background-color: black;
+    position: absolute;
+    /* top: 80%; */
+    left: 1px;
+    /* top: 50%;
+    transform: translateY(-50%); */
+}
+.ball{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+    /* top: 50%; */
+    left: 11px;
+    /* transform: translate(-50%, -50%); */
+}
