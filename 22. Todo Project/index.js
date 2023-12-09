@@ -1,63 +1,121 @@
-let newTaskValue = ""
+let newTaskValue = "";
 const setNewTaskValue = (e) => {
-    newTaskValue = e.target.value;
-    console.log(newTaskValue)
+  newTaskValue = e.target.value;
+  console.log(newTaskValue);
+};
+let tasks = [];
+function toggleAddTaskButton() {
+  const addTaskButton = document.getElementById("add-task-btn");
+  if (newTaskValue) {
+    addTaskButton.removeAttribute("disabled");
+    console.log("enabled");
+  } else {
+    addTaskButton.setAttribute("disabled", true);
+    console.log("disabled");
+  }
 }
 
-function toggleAddTaskButton(){
-    const addTaskButton = document.getElementById("add-task-btn")
-    if(newTaskValue){
-        addTaskButton.removeAttribute('disabled')
-        console.log("enabled")
-    }else{
-        addTaskButton.setAttribute('disabled' , true)
-        console.log('disabled')
+const updateInputField = () => {
+  const inputField = document.getElementById("task-input");
+  inputField.value = newTaskValue;
+};
+
+function deleteHandle(e) {
+  const rowToDelete = e.target.parentNode.parentNode;
+  tasks.splice(rowToDelete.getAttribute("data-task-id"), 1);
+  renderTasks();
+}
+
+function sortTasks(){
+    tasks.sort((a,b) => {
+        if(a.status === b.status) return 0;
+        if(a.status === "Finished") return 1;
+        return -1;
+    })
+}
+function finishHandle(e){
+    const rowToFinish = e.target.parentNode.parentNode;
+    if(tasks[rowToFinish.getAttribute("data-task-id")].status === "Finished"){
+        tasks[rowToFinish.getAttribute("data-task-id")].status = "In progress";
+        tasks[rowToFinish.getAttribute("data-task-id")].finishButton = "Finish";
+        //sort tasks on the basis of status
+        sortTasks();
+        renderTasks();
+        return;
     }
+    tasks[rowToFinish.getAttribute("data-task-id")].status = "Finished";
+    tasks[rowToFinish.getAttribute("data-task-id")].finishButton = "Restart";
+    sortTasks();
+    renderTasks();
 }
 
-const updateInputField = ()=>{
-    const inputField = document.getElementById("task-input")
-    inputField.value = newTaskValue
-}
+const addTasks = (e) => {
+  if (newTaskValue == "") return;
+  tasks.push({
+    task: newTaskValue,
+    status: "In progress",
+    finishButton: "Finish",
 
-function deleteHandle(e){
-    const rowToDelete = e.target.parentNode.parentNode;
-    rowToDelete.remove();
-    const todoData = document.getElementById('todo-data');
-    const todoRows = todoData.getElementsByClassName('todo-row');
-    for(let i=0;i<todoRows.length;i++){
-        todoRows[i].getElementsByClassName('todo-no')[0].innerHTML = i+1;
-    }
-}
+  });
+  renderTasks();
+  newTaskValue = "";
+  updateInputField();
+  toggleAddTaskButton();
+};
 
-const addTasks = (e)=>{
-    if(newTaskValue=="") return;
-    const parentDiv = document.getElementById("todo-data")
-    const newelement = document.createElement('div');
-    const totalTasks = document.getElementsByClassName('todo-no').length
+const renderTasks = () => {
+  const parentDiv = document.getElementById("todo-data");
+  const tempTasks = Array.from(parentDiv.getElementsByClassName("todo-row"));
+  tempTasks.forEach((task) => task.remove());
+  tasks.forEach((task, index) => {
+    let newelement = document.createElement("div");
+    newelement.classList.add(
+      "flex",
+      "justify-between",
+      "items-center",
+      "border-l-2",
+      "border-r-2",
+      "border-b-2",
+      "border-gray-300",
+      "p-2",
+      "mt-0",
+      "space-x-4",
+      "h-full",
+      "todo-row"
+    );
     newelement.innerHTML = `
-    <div class="flex justify-between items-center border-l-2 border-r-2 border-b-2 border-gray-300 p-2 mt-0 space-x-4 h-full todo-row">
         <div class="basis-1/6 text-center text-xl border-r-2 border-gray-300 todo-no">
-            ${totalTasks}
+            ${index + 1}
         </div>
         <div class="grow text-center text-xl border-r-2 border-gray-300 todo-detail">
-            ${newTaskValue}
+            ${task.task}
         </div>
-        <div class="basis-1/6 text-center text-xl border-r-2 border-gray-300 todo-item">
-            In progress
+        <div class="basis-1/6 text-center text-xl border-r-2 border-gray-300 todo-status text-green-400">
+            ${task.status}
         </div>
         <div class="basis-1/6 text-center text-xl todo-action">
             <button class="border-2 border-red-500 bg-red-500 text-white p-1 rounded-lg hover:bg-red-700" onclick="deleteHandle(event)">
-                Delete
+                ${"Delete"}
             </button>
-            <button class="border-2 border-green-500 bg-green-500 text-white p-1 rounded-lg hover:bg-green-700 ml-2">
-                Finished
+            <button class="border-2 border-green-500 bg-green-500 text-white p-1 rounded-lg hover:bg-green-700 ml-2 " onclick="finishHandle(event)">
+                ${task.finishButton}
             </button>
         </div>
-    </div>`;
-    parentDiv.appendChild(newelement) 
-    newTaskValue=""
-    updateInputField()
-    toggleAddTaskButton()
-    console.log("done")
-}
+        `;
+    newelement.setAttribute("data-task-id", index);
+    const finishButton = newelement.getElementsByClassName("todo-action")[0]
+      .children[1];
+    const todoStatus = newelement.getElementsByClassName("todo-status")[0];
+    if (task.status === "Finished") {
+        finishButton.classList.remove("bg-green-500");
+        finishButton.classList.add("bg-yellow-500");
+        finishButton.classList.remove("hover:bg-green-700");
+        finishButton.classList.add("hover:bg-yellow-700");
+        finishButton.classList.remove("border-green-500");
+        finishButton.classList.add("border-yellow-500");
+        todoStatus.classList.remove("text-green-400");
+        todoStatus.classList.add("text-yellow-400");
+    }
+    parentDiv.appendChild(newelement);
+  });
+};
