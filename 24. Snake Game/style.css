@@ -1,0 +1,27 @@
+html{
+    box-sizing: border-box;
+}
+
+*, *::before, *:after{
+    box-sizing: inherit;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: antiquewhite;
+    text-align: center;
+}
+
+#game-arena{
+    width:700px;
+    height:600px;
+    border: 10px solid green;
+    background-color: #333;
+    position: relative;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgbps*0, 0 , 0;
+}
