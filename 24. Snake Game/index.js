@@ -42,6 +42,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
   function drawFoodAndSnake() {
     //erase everything that's already there
     gameArena.innerHTML = ``;
+    snake.forEach((snakeCell)=>{
+        const snakeElement = drawDiv(snakeCell.x , snakeCell.y , "snake");
+        gameArena.appendChild(snakeElement);
+    })
     foodElement = drawDiv(food.x, food.y, "food");
     gameArena.appendChild(foodElement);
   }
