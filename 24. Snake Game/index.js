@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     setInterval(() => {
     displayScoreBoard();
     drawFoodAndSnake();
-    }, 1);
+    }, 1000);
   }
 
   function runGame() {

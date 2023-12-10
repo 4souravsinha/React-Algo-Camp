@@ -63,12 +63,11 @@ body{
     height: 20px;
     background-color: red;
     border-radius: 50%;
-    animation: blink 3s infinite;
+    animation: blink 1s infinite;
 }
 
 @keyframes blink {
     50%{
         opacity: 0.5;
-        background-color: green;
     }
 }
