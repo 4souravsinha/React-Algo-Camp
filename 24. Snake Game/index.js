@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function (event) {
+  let gameInterval;
+  let gameSpeed = 500;
   const gameArena = document.getElementById("game-arena");
   const borderWidth = parseInt(
     getComputedStyle(gameArena).getPropertyValue("border-left-width")
@@ -38,23 +40,29 @@ document.addEventListener("DOMContentLoaded", function (event) {
   document.addEventListener("keydown", (event) => {
     if (!gameStarted) return;
     const key = event.key;
+    const movingOnXAxis = dx != 0;
+    const movingOnYAxis = dy != 0;
     switch (key) {
       case "ArrowUp":
+        if (movingOnYAxis) return;
         dx = 0;
         dy = -20;
         console.log("up");
         break;
       case "ArrowDown":
+        if (movingOnYAxis) return;
         dx = 0;
         dy = 20;
         console.log("down");
         break;
       case "ArrowLeft":
+        if (movingOnXAxis) return;
         dx = -20;
         dy = 0;
         console.log("left");
         break;
       case "ArrowRight":
+        if (movingOnXAxis) return;
         dx = 20;
         dy = 0;
         console.log("right");
@@ -87,11 +95,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const foodElement = document.getElementsByClassName("food")[0];
     const maxX = arenaSize - foodElement.offsetWidth;
     const maxY = arenaSize - foodElement.offsetWidth;
-    let randomX , randomY;
-    do{
-        randomX = Math.round((Math.random() * maxX) / 20) * 20;
-        randomY = Math.round((Math.random() * maxY) / 20) * 20;
-    }while(snake.some((snakeCell) => snakeCell.x === randomX && snakeCell.y === randomY));
+    let randomX, randomY;
+    do {
+      randomX = Math.round((Math.random() * maxX) / 20) * 20;
+      randomY = Math.round((Math.random() * maxY) / 20) * 20;
+    } while (snake.some((snakeCell) => snakeCell.x === randomX && snakeCell.y === randomY));
     food = {
       x: randomX,
       y: randomY,
@@ -136,38 +144,44 @@ document.addEventListener("DOMContentLoaded", function (event) {
         x: newx,
         y: newy,
       });
+      
+      gameSpeed -= 10;
+      gameSpeed = Math.max(gameSpeed, 100);
+      clearInterval(gameInterval);
+      gameLoop();
     }
   }
-  
-  function isGameOver(){
-        for(let i = 1; i < snake.length; i++){
-            if(snake[0].x === snake[i].x && snake[0].y === snake[i].y){
-                return true;
-            }
-        }
-        const isHittingLeftWall = snake[0].x < 0;
-        const isHittingRightWall = snake[0].x >= arenaSize;
-        const isHittingTopWall = snake[0].y < 0;
-        const isHittingBottomWall = snake[0].y >= arenaSize;
-        if(isHittingLeftWall || isHittingRightWall || isHittingTopWall || isHittingBottomWall){
-            return true;
-        }
-        return false;
+
+  function isGameOver() {
+    for (let i = 1; i < snake.length; i++) {
+      if (snake[0].x === snake[i].x && snake[0].y === snake[i].y) {
+        return true;
+      }
+    }
+    const isHittingLeftWall = snake[0].x < 0;
+    const isHittingRightWall = snake[0].x >= arenaSize;
+    const isHittingTopWall = snake[0].y < 0;
+    const isHittingBottomWall = snake[0].y >= arenaSize;
+    if (isHittingLeftWall || isHittingRightWall || isHittingTopWall || isHittingBottomWall) {
+      return true;
+    }
+    return false;
   }
 
   function gameLoop() {
-    let check = setInterval(() => {
-        if(isGameOver()){
-            clearInterval(check);
-            gameStarted = false;
-            alert("Game Over");
-            window.location.reload()
-            return;
-        }
+    console.log(gameSpeed)
+    gameInterval = setInterval(() => {
+      if (isGameOver()) {
+        clearInterval(gameInterval);
+        gameStarted = false;
+        alert("Game Over");
+        window.location.reload()
+        return;
+      }
+      snakeEatsFood();
       displayScoreBoard();
       drawFoodAndSnake();
-      snakeEatsFood();
-    }, 500);
+    }, gameSpeed);
   }
 
   function runGame() {
