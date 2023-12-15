@@ -1,0 +1,22 @@
+.outer{
+  display: flex;
+  flex-flow: row wrap;
+  width: 600px;
+  height: 600px;
+  border: 5px solid green;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.box{
+  width: 180px;
+  height: 180px;
+  flex-basis: 30%;
+  border: 1px solid red;
+  font-size: 50px;
+  display: flex; /* Make the box a flex container */
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
+}
