@@ -1,0 +1,15 @@
+#outer{
+  width: 600px;
+  height: 600px;
+  padding: 10px;
+  background-color: green;
+}
+
+#img{
+  width: 100px;
+  height: 100px;
+}
+
+body{
+  display: flex;
+}
